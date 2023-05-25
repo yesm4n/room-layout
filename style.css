@@ -1,0 +1,331 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --black-text-color: #000;
+  --dark-text-color: hsl(0, 0%, 27%);
+  --gray-text-color: hsl(0, 0%, 63%);
+  --white-text-color: #fff;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "League Spartan", sans-serif;
+  font-size: 16px;
+  margin: 0;
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: 600;
+}
+
+h1,
+h2,
+h3 {
+  color: var(--black-text-color);
+}
+
+img,
+svg {
+  max-width: 100%;
+  display: block;
+}
+
+ul,
+li {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+p {
+  color: var(--gray-text-color);
+  line-height: 1.3;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* Global container */
+
+.container {
+  max-width: 1440px;
+  margin: auto;
+  box-shadow: 0 1px 10px rgb(0 0 0 / 0.5);
+}
+
+/* Navbar */
+
+.header {
+  margin-left: 50px;
+  gap: 2rem;
+  position: absolute;
+  display: flex;
+  padding-top: 2.5rem;
+}
+
+.toggle-button {
+  cursor: pointer;
+  padding: 1rem;
+}
+
+.navbar-brand {
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+.navbar-brand:hover,
+.navbar-brand:focus {
+  transform: scale(1.1);
+}
+
+.navbar {
+  display: flex;
+}
+
+.navbar ul {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.navbar li a {
+  color: var(--white-text-color);
+}
+
+.navbar li a:hover {
+  text-decoration: underline;
+  text-underline-offset: 15px;
+}
+
+/* Hero styling */
+
+.hero {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+}
+
+/* Hero cards layout */
+
+.card-1 {
+  position: relative;
+  grid-column: 1 / 3;
+}
+
+.card-2 {
+  margin: auto;
+  padding-right: 25%;
+  padding-left: 5%;
+}
+
+.card-2,
+.card-4 {
+  margin: auto;
+}
+
+.card-5 {
+  position: relative;
+}
+
+.card-img-3 {
+  position: absolute;
+  right: 0;
+}
+
+.card-img-2,
+.card-img-3 {
+  width: 90%;
+  aspect-ratio: 1/ 0.6;
+  object-fit: cover;
+}
+
+/* Hero cards typography */
+
+.card-4 h3 {
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+/* Slide container */
+
+.slide-container {
+  bottom: 0;
+  right: -49px;
+  position: absolute;
+  display: flex;
+  /* z-index: -1; */
+}
+
+.slide {
+  padding: 1.5rem 2.2rem;
+  background-color: var(--black-text-color);
+}
+
+.slide:hover,
+.slide:active {
+  background-color: var(--dark-text-color);
+  cursor: pointer;
+}
+
+/* Shop container */
+
+.shop-container {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.shop-link {
+  color: var(--black-text-color);
+  letter-spacing: 10px;
+  text-transform: uppercase;
+}
+
+.shop-link:hover,
+.shop-link:active {
+  color: var(--gray-text-color);
+}
+
+.shop-img {
+  filter: invert(100%) sepia(0%) saturate(100%) hue-rotate(307deg)
+    brightness(0%) contrast(500%);
+}
+
+.shop-img:hover,
+.shop-img:active {
+  cursor: pointer;
+  opacity: 0.5;
+}
+
+/* Hidden items */
+
+.hidden {
+  display: none;
+}
+
+.toggle-button {
+  display: none;
+}
+
+/* Media queries */
+
+@media (max-width: 1200px) {
+  .close-menu,
+  .open-menu,
+  .logo {
+    max-width: unset;
+  }
+
+  /* Container */
+
+  .hero {
+    column-gap: 2rem;
+    row-gap: 3rem;
+  }
+
+  /* Cards typography */
+
+  .card-2,
+  .card-4 {
+    padding: 0 10%;
+  }
+
+  /* Card images */
+
+  .card-img-1 {
+    width: 100%;
+    aspect-ratio: 1/ 0.6;
+    object-fit: cover;
+  }
+
+  .card-img-2,
+  .card-img-3 {
+    width: 100%;
+  }
+
+  .card-img-3 {
+    position: unset;
+  }
+
+  /* Slider container */
+
+  .slide-container {
+    right: 0;
+  }
+}
+
+@media (max-width: 750px) {
+  /* Navbar */
+
+  .header {
+    align-items: center;
+    gap: 0;
+    margin: auto;
+  }
+
+  .header.active {
+    z-index: 1000;
+    padding-top: 0;
+    position: fixed;
+    inset: 0 0 85% 0;
+    background-color: var(--white-text-color);
+  }
+
+  .navbar-brand {
+    margin-left: 100px;
+  }
+
+  .toggle-button {
+    display: flex;
+  }
+
+  .navbar {
+    display: none;
+  }
+
+  .navbar.active {
+    display: flex;
+  }
+
+  .navbar ul a {
+    color: var(--black-text-color);
+  }
+
+  /* Container setup */
+
+  .hero {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  /* Image shift */
+
+  .card-img-1 {
+    width: 100%;
+    object-fit: cover;
+    aspect-ratio: 1/ 1;
+    margin: auto;
+  }
+
+  /* Text adjust */
+
+  .card-2,
+  .card-4 {
+    padding: 0 5%;
+  }
+
+  /* Shopping cart */
+
+  .shop-container {
+    margin: 1.5rem 0 2rem;
+  }
+}
